@@ -2,9 +2,7 @@ import re
 import os
 import subprocess
 
-def execute_pgn_extract_command(file_path, pgn_extract_path='pgn-extract.exe'):
-    # The following line is commented as you can add the path to pgn-extract.exe to the system PATH
-    # os.chdir('C:/Users/USER/PycharmProjects/pythonProject')  # Change the working directory
+def execute_pgn_extract_command(file_path, pgn_extract_path='./pgn-extract.exe'):
     command = [pgn_extract_path, '-e', 'eco.pgn', file_path]
     result = subprocess.run(command, stdout=subprocess.PIPE, text=True)
     return result.stdout
