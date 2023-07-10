@@ -48,5 +48,11 @@ def take_single_game_from_pgn_return_headers_moves():
 
         return send_as_file(filename, updated_pgn_content)
 
-if __name__ == "__main__":
+def create_app():
+    app = Flask(__name__)
+    # Add your Flask app configuration and routes here
+    return app
+
+if __name__ == '__main__':
+    app = create_app()
     app.run(port=5000, debug=True)
