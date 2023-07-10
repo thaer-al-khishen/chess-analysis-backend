@@ -3,9 +3,11 @@ import os
 import subprocess
 
 def execute_pgn_extract_command(file_path, pgn_extract_path='./pgn-extract.exe'):
+    os.chmod(pgn_extract_path, 0o755)  # Change the permission of the executable
     command = [pgn_extract_path, '-e', 'eco.pgn', file_path]
     result = subprocess.run(command, stdout=subprocess.PIPE, text=True)
     return result.stdout
+
 
 def get_game_headers(game_lines):
     headers = {}
